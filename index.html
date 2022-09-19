@@ -67,10 +67,10 @@
     <!-- ! Untuk tantangan ini, script jangan diubah ke external js yah ! -->
     <script>
       // TODO: Deklarasi variable sesuai dengan kebutuhan di sini
-      //let button = document.querySelector("#todo-submit");
-     
+      
+      let input = document.getElementById("todo-input");
       let output = document.querySelector("#todo-output");
-
+      let button = document.querySelector("#todo-submit");
       //let langs = ["TypeScript", "JavaScript", "CSS"];
       //
       //let nodes = langs.map((item) => {
@@ -78,20 +78,26 @@
       //  li.textContent = item;
       //  return li;
       //})
-
-      output.append( ...nodes);
+      
+      //output.append( ...nodes);
       // TODO: Buatlah sebuah fungsi dengan nama fnClickHandler
       // Fungsi yang digunakan untuk menambahkan tulisan
       // Jangan ubah cara deklarasi fungsinya, cukup isi saja
       function fnClickHandler() {
-        let input = document.getElementById("todo-input").value;
-
+      
         let li = document.createElement("li");
-        li.textContent = input;
+        li.textContent = input.value;
         output.appendChild(li);
 
         document.getElementById("todo-input").value = "";
       }
+
+      input.addEventListener("keypress", function(event) {
+        if (event.keyCode === 13) {
+          event.preventDefault();
+          document.getElementById("todo-submit").click();
+        }
+      });
 
       // TODO: register event onclick / addEventListener untuk button
       // akan menjalankan fungsi fnClickHandler
