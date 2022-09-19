@@ -93,11 +93,19 @@
       }
 
       input.addEventListener("keypress", function(event) {
-        if (event.keyCode === 13) {
+        if (event.key === "Enter") {
           //event.preventDefault();
           //button.click();
-          fnClickHandler();
-          fnClickHandler();
+          //fnClickHandler();
+          let li = document.createElement("li");
+          li.textContent = input.value;
+          output.appendChild(li);
+
+          document.getElementById("todo-input").value = "";
+
+          li = document.createElement("li");
+          li.textContent = input.value;
+          output.appendChild(li);
         }
       });
 
