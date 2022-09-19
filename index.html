@@ -94,9 +94,14 @@
 
       input.addEventListener("keypress", function(event) {
         if (event.keyCode === 13) {
-          event.preventDefault();
-          //button.click(); //ini juga bisa 
-          fnClickHandler();
+          //event.preventDefault();
+          //button.click();
+          //fnClickHandler();
+          let li = document.createElement("li");
+          li.textContent = input.value;
+          output.appendChild(li);
+
+          document.getElementById("todo-input").value = "";
         }
       });
 
