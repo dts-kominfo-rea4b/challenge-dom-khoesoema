@@ -95,7 +95,8 @@
       input.addEventListener("keypress", function(event) {
         if (event.keyCode === 13) {
           event.preventDefault();
-          document.getElementById("todo-submit").click();
+          //button.click(); //ini juga bisa 
+          fnClickHandler();
         }
       });
 
